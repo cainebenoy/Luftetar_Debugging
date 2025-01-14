@@ -1,10 +1,8 @@
-def longest_word(sentence):
-    words = sentence.split(" ")
-    longest = 0
-    for word in words:
-        if len(word) > longest:
-            longest = len(word)
-    return longest
+def reverse_string(s)
+    reversed_s = ""
+    for char in s
+        reversed_s = char + reversed_s
+    return reversed_s
 
-sentence = input("Enter a sentence: ")
-print(f"The length of the longest word is {longest_word(sentence)}")
+string = input("Enter a string: ")
+print(f"The reverse of the string is: {reverse_string(string)}")
