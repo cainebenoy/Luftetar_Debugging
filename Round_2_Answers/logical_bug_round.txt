@@ -1,0 +1,88 @@
+### **Errors in the Code**
+
+1. **Logical Error in `find_gcd` Function:**
+   - Incorrect logic in the function. The statement `b = b - a` should be `a = a - b` in the `if` block.
+
+2. **Edge Case Error for `GCD`:**
+   - If one of the numbers is 0, the GCD should be the other number, but the code incorrectly uses `max(num1, num2)`.
+
+3. **Error in `find_gcd` for Zero Inputs:**
+   - The `find_gcd` function doesn't handle cases where one number is 0. This should be addressed separately in the main logic before calling the function.
+
+4. **Generic `except` Block:**
+   - Using a generic `except` without specifying the exception type can suppress important error details.
+
+5. **Improper Use of Input Validation:**
+   - Negative numbers should be handled as invalid inputs directly, instead of printing a message and not terminating the program.
+
+---
+
+### **Corrected Code**
+
+```python
+def find_gcd(a, b):
+    # Corrected logic for GCD calculation
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)  # Ensure the GCD is always positive
+
+try:
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+    
+    if num1 < 0 or num2 < 0:
+        print("Error: GCD is not defined for negative numbers. Please enter non-negative integers.")
+    elif num1 == 0 and num2 == 0:
+        print("GCD is undefined when both numbers are zero.")
+    else:
+        print("The GCD of", num1, "and", num2, "is:", find_gcd(num1, num2))
+
+except ValueError:
+    print("Invalid input! Please enter valid integers.")
+```
+
+---
+
+### **Fixes Applied**
+
+1. **Corrected GCD Logic:**
+   - Replaced the incorrect logic in `find_gcd` with the correct Euclidean algorithm.
+
+2. **Handled Zero Cases Explicitly:**
+   - Added a separate check for both inputs being zero since GCD is undefined in this case.
+
+3. **Input Validation:**
+   - Rejected negative inputs with an error message.
+
+4. **Specific Exception Handling:**
+   - Used `except ValueError` to catch invalid input errors, ensuring other exceptions aren't accidentally suppressed.
+
+5. **Used `abs()` for Safety:**
+   - Ensured the `find_gcd` function always returns a positive result.
+
+---
+
+### **Example Outputs**
+
+#### **Input 1**
+```
+Enter the first number: 24
+Enter the second number: 36
+The GCD of 24 and 36 is: 12
+```
+
+#### **Input 2**
+```
+Enter the first number: -12
+Enter the second number: 18
+Error: GCD is not defined for negative numbers. Please enter non-negative integers.
+```
+
+#### **Input 3**
+```
+Enter the first number: 0
+Enter the second number: 0
+GCD is undefined when both numbers are zero.
+```
+
+This corrected code ensures all edge cases are properly handled and the logic is correct.
