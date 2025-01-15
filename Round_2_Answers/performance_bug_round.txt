@@ -1,0 +1,96 @@
+### **Errors in the Code**
+
+1. **Incorrect Error Handling for `except`:**
+   - A generic `except` block is used, which suppresses detailed error messages and is not specific.
+
+2. **Negative Position Check:**
+   - The error message `"Fibonacci is not defined for negative positions."` is correct, but the program continues execution after printing it.
+
+3. **Grammar Error in the Output:**
+   - The output statement `The {num}th Fibonacci number is:` may not always be correct (e.g., `1th` or `2th`). This needs proper handling of ordinal suffixes (`st`, `nd`, `rd`, `th`).
+
+4. **Recursive Function Efficiency:**
+   - The `fibonacci` function uses recursion without memoization, leading to performance issues for larger inputs (e.g., `fibonacci(40)` will take a very long time).
+
+---
+
+### **Corrected Code**
+
+```python
+def fibonacci(n, memo={}):
+    # Add memoization to optimize the Fibonacci calculation
+    if n in memo:
+        return memo[n]
+    if n <= 1:
+        return n
+    memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo)
+    return memo[n]
+
+def get_ordinal_suffix(num):
+    # Add a function to determine the correct ordinal suffix
+    if 10 <= num % 100 <= 20:  # Handle special cases like 11th, 12th, etc.
+        return "th"
+    suffixes = {1: "st", 2: "nd", 3: "rd"}
+    return suffixes.get(num % 10, "th")
+
+try:
+    num = int(input("Enter the position (N) of the Fibonacci number: "))
+    if num < 0:
+        print("Error: Fibonacci is not defined for negative positions.")
+    else:
+        suffix = get_ordinal_suffix(num)
+        print(f"The {num}{suffix} Fibonacci number is: {fibonacci(num)}")
+except ValueError:
+    print("Invalid input! Please enter a valid integer.")
+```
+
+---
+
+### **Fixes Applied**
+
+1. **Added Memoization:**
+   - Optimized the `fibonacci` function by adding memoization to avoid redundant recursive calls.
+
+2. **Corrected Ordinal Suffix:**
+   - Added a function `get_ordinal_suffix` to display the correct ordinal suffix for numbers.
+
+3. **Handled Negative Input Gracefully:**
+   - Terminated the program after displaying the error for negative inputs.
+
+4. **Specific Exception Handling:**
+   - Replaced the generic `except` block with `except ValueError` to catch invalid input errors.
+
+5. **Improved Grammar in Output:**
+   - Ensured the output is grammatically correct by adding the proper ordinal suffix.
+
+---
+
+### **Example Outputs**
+
+#### **Input 1**
+```
+Enter the position (N) of the Fibonacci number: 7
+The 7th Fibonacci number is: 13
+```
+
+#### **Input 2**
+```
+Enter the position (N) of the Fibonacci number: 1
+The 1st Fibonacci number is: 1
+```
+
+#### **Input 3**
+```
+Enter the position (N) of the Fibonacci number: -5
+Error: Fibonacci is not defined for negative positions.
+```
+
+#### **Input 4**
+```
+Enter the position (N) of the Fibonacci number: abc
+Invalid input! Please enter a valid integer.
+```
+
+---
+
+This corrected version improves the performance, ensures accurate output formatting, and handles all edge cases properly. Let me know if you need additional adjustments!

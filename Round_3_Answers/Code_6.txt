@@ -1,0 +1,123 @@
+### **Errors in the Code**
+
+1. **Syntax Error - Missing Parentheses in `score.set(5`:**
+   - The `score.set(5` is missing a closing parenthesis.
+
+2. **Syntax Error - Missing Parenthesis in `final_score.set(score.get()`:**
+   - The `final_score.set(score.get()` is missing a closing parenthesis.
+
+3. **Syntax Error - Missing Comma in `random.randint(1 50)`:**
+   - The `random.randint(1 50)` is missing a comma between `1` and `50`.
+
+4. **Syntax Error - Missing Parentheses in Function Definition `def fun`:**
+   - The function definition `def fun` is missing parentheses, it should be `def fun():`.
+
+5. **Syntax Error - Missing Parentheses in `final_score.set(score.get()`:**
+   - The `final_score.set(score.get()` in multiple places is missing a closing parenthesis.
+
+6. **Syntax Error - Missing Colon After `if score.get() > 0`:**
+   - The `if score.get() > 0` is missing a colon at the end.
+
+7. **Syntax Error - Missing Colon After `if x > 50 or x < 1`:**
+   - The `if x > 50 or x < 1` is missing a colon at the end.
+
+8. **Syntax Error - Missing Parenthesis in `hint.set("Out of range! You just lost 1 chance."`:**
+   - The `hint.set` call in `if x > 50 or x < 1` is missing a closing parenthesis.
+
+9. **Syntax Error - Missing Parenthesis in `score.set(score.get() - 1`:**
+   - The `score.set(score.get() - 1)` is missing a closing parenthesis.
+
+10. **Syntax Error - Missing Parenthesis in `final_score.set(score.get()`:**
+   - The `final_score.set(score.get())` is missing a closing parenthesis in some cases.
+
+---
+
+### **Corrected Code**
+
+```python
+# pip install tk
+
+import tkinter as tk
+from tkinter import *
+import random
+
+# Initialize the window
+win = tk.Tk()
+win.geometry("750x750")
+win.title("PythonGeeks")
+
+# Initialize variables
+hint = StringVar()
+score = IntVar()
+final_score = IntVar()
+guess = IntVar()
+
+# Set initial values
+hint.set("Guess a number between 1 to 50")
+score.set(5)
+final_score.set(score.get())
+
+# Random number to guess
+num = random.randint(1, 50)  # Fixed missing comma
+
+# Define the function
+def fun():
+    x = guess.get()
+    final_score.set(score.get())
+    if score.get() > 0:
+        if x > 50 or x < 1:
+            hint.set("Out of range! You just lost 1 chance.")
+            score.set(score.get() - 1)
+            final_score.set(score.get())
+        elif num == x:
+            hint.set("Congratulations, YOU WON!!!")
+            score.set(score.get() - 1)
+            final_score.set(score.get())
+        elif num > x:
+            hint.set("Your guess was too low: Guess a higher number.")
+            score.set(score.get() - 1)
+            final_score.set(score.get())
+        elif num < x:
+            hint.set("Your guess was too high: Guess a lower number.")
+            score.set(score.get() - 1)
+            final_score.set(score.get())
+    else:
+        hint.set("Game Over You Lost")
+
+# Widgets
+Entry(win, textvariable=guess, width=3, font=('Ubuntu', 50), relief=GROOVE).place(relx=0.5, rely=0.3, anchor=CENTER)
+Entry(win, textvariable=hint, width=50, font=('Courier', 15), relief=GROOVE, bg='orange').place(relx=0.5, rely=0.7, anchor=CENTER)
+Entry(win, text=final_score, width=2, font=('Ubuntu', 24), relief=GROOVE).place(relx=0.61, rely=0.85, anchor=CENTER)
+
+Label(win, text='I challenge you to guess the number ', font=("Courier", 25)).place(relx=0.5, rely=0.09, anchor=CENTER)
+Label(win, text='Score out of 5', font=("Courier", 25)).place(relx=0.3, rely=0.85, anchor=CENTER)
+
+Button(win, width=8, text='CHECK', font=('Courier', 25), command=fun, relief=GROOVE, bg='light blue').place(relx=0.5, rely=0.5, anchor=CENTER)
+
+win.mainloop()
+```
+
+---
+
+### **Fixes Applied**
+
+1. **Added Closing Parentheses:**
+   - Fixed the missing closing parentheses in `score.set(5)`, `final_score.set(score.get())`, and other instances.
+
+2. **Added Missing Comma:**
+   - Fixed the missing comma in `random.randint(1, 50)`.
+
+3. **Added Missing Colon (`:`):**
+   - Added colons after `if score.get() > 0` and `if x > 50 or x < 1`.
+
+4. **Fixed Function Definition:**
+   - Added parentheses to the function definition `def fun()`.
+
+5. **Corrected Parentheses in `hint.set`:**
+   - Added the closing parentheses to the `hint.set()` calls.
+
+---
+
+### **Example Output**
+
+This corrected version ensures that all syntax errors are addressed and the program runs smoothly.

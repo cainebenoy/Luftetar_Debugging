@@ -1,0 +1,32 @@
+### **Errors in the Code**
+
+1. **TypeError - String Concatenation:**
+   - The code attempts to concatenate a string (`"The square is: "`) with an integer (`square(5)`), which is not allowed in Python.
+
+---
+
+### **Corrected Code**
+
+```python
+def square(num):
+    return num * num
+
+print("The square is: " + str(square(5)))
+```
+
+---
+
+### **Fixes Applied**
+
+1. **Converted the Integer to String:**
+   - Used `str()` to convert the result of `square(5)` to a string for concatenation.
+
+---
+
+### **Example Output**
+
+```
+The square is: 25
+```
+
+This corrected version resolves the TypeError and works as intended.

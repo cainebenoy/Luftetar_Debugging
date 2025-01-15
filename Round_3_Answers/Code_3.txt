@@ -1,0 +1,61 @@
+### **Errors in the Code**
+
+1. **Syntax Error - Indentation Issue:**
+   - The `if` statement inside the `for` loop is not properly indented.
+
+2. **Syntax Error - Missing Colon:**
+   - The `if` condition `if num > max` is missing a colon (`:`) at the end.
+
+3. **NameError - Incorrect Function Call:**
+   - The function is called as `find_maximum(numbers)` instead of `find_max(numbers)`.
+
+4. **Variable Name Shadowing - Using `max` as a Variable Name:**
+   - Using `max` as a variable name shadows the built-in Python function `max()`.
+
+---
+
+### **Corrected Code**
+
+```python
+def find_max(lst):
+    max_num = lst[0]
+    for num in lst:
+        if num > max_num:
+            max_num = num
+    return max_num
+
+numbers = [3, 1, 4, 1, 5, 9]
+print("The maximum number is:", find_max(numbers))
+```
+
+---
+
+### **Fixes Applied**
+
+1. **Corrected Indentation:**
+   - Properly indented the `if` statement inside the `for` loop.
+
+2. **Added Missing Colon:**
+   - Added a colon (`:`) at the end of the `if` condition.
+
+3. **Corrected Function Call:**
+   - Replaced `find_maximum(numbers)` with `find_max(numbers)` to match the defined function name.
+
+4. **Renamed Variable:**
+   - Changed the variable name `max` to `max_num` to avoid shadowing the built-in `max()` function.
+
+---
+
+### **Example Output**
+
+#### **Input**
+```python
+numbers = [3, 1, 4, 1, 5, 9]
+```
+
+#### **Output**
+```
+The maximum number is: 9
+```
+
+This corrected version resolves all syntax errors and avoids potential issues with variable shadowing.

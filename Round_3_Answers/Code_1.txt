@@ -1,0 +1,57 @@
+### **Errors in the Code**
+
+1. **Syntax Error - Missing Colon:**
+   - The function definition `def reverse_string(s)` is missing a colon (`:`) at the end.
+   
+2. **Syntax Error - Missing Colon in `for` Loop:**
+   - The `for` loop `for char in s` is missing a colon (`:`) at the end.
+
+3. **Variable Name Error - `reversed_s`:**
+   - The variable `reversed_s` is being used but was not declared before the loop.
+
+4. **Logical Structure Error:**
+   - There are no logical issues, but it’s worth noting that this implementation of reversing a string is less efficient than using slicing (`s[::-1]`).
+
+---
+
+### **Corrected Code**
+
+```python
+def reverse_string(s):
+    reversed_s = ""
+    for char in s:
+        reversed_s = char + reversed_s
+    return reversed_s
+
+string = input("Enter a string: ")
+print(f"The reverse of the string is: {reverse_string(string)}")
+```
+
+---
+
+### **Fixes Applied**
+
+1. **Added Missing Colons:**
+   - Added a colon (`:`) at the end of the function definition and the `for` loop.
+
+2. **Variable Declaration Verified:**
+   - The variable `reversed_s` is correctly declared before being used.
+
+3. **Preserved Original Logic:**
+   - Kept the original logic to ensure clarity and adherence to the user's intent.
+
+---
+
+### **Example Output**
+
+#### **Input**
+```
+Enter a string: Python
+```
+
+#### **Output**
+```
+The reverse of the string is: nohtyP
+```
+
+This corrected version resolves all syntax issues and works as expected.    

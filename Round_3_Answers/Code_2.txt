@@ -1,0 +1,58 @@
+### **Errors in the Code**
+
+1. **Syntax Error - Missing Colon in `for` Loop:**
+   - The `for` loop `for num in lst` is missing a colon (`:`) at the end.
+
+2. **Syntax Error - Missing Colon in `if` Statement:**
+   - The `if` condition `if num % 2 == 0` is missing a colon (`:`) at the end.
+
+3. **Logical Error - Incorrect Return Placement:**
+   - The `return total` statement is inside the `for` loop, causing it to return prematurely after the first iteration.
+
+4. **NameError - Incorrect Function Name:**
+   - The function is called as `sum_of_even(numbers)` instead of `sum_of_evens(numbers)`.
+
+---
+
+### **Corrected Code**
+
+```python
+def sum_of_evens(lst):
+    total = 0
+    for num in lst:
+        if num % 2 == 0:
+            total += num
+    return total
+
+numbers = [1, 2, 3, 4, 5]
+print("The sum of even numbers is: ", sum_of_evens(numbers))
+```
+
+---
+
+### **Fixes Applied**
+
+1. **Added Missing Colons:**
+   - Added colons (`:`) at the end of the `for` loop and the `if` statement.
+
+2. **Moved `return` Statement:**
+   - Moved the `return total` statement outside of the `for` loop to ensure all even numbers are summed.
+
+3. **Corrected Function Call:**
+   - Replaced `sum_of_even(numbers)` with `sum_of_evens(numbers)` to match the defined function name.
+
+---
+
+### **Example Output**
+
+#### **Input**
+```python
+numbers = [1, 2, 3, 4, 5]
+```
+
+#### **Output**
+```
+The sum of even numbers is: 6
+```
+
+This corrected version ensures the code works as expected without syntax or logical errors.

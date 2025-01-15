@@ -1,0 +1,77 @@
+### **Errors in the Code**
+
+1. **Syntax Error - Missing Closing Parenthesis:**
+   - In the function definition `def factorial(n`, the closing parenthesis is missing.
+
+2. **Syntax Error - Missing Colon:**
+   - After the `if num < 0` statement, a colon (`:`) is missing.
+
+3. **Syntax Error - Missing Colon in `else`:**
+   - In the `else` block of the `factorial` function and the `else` block in the main code, colons (`:`) are missing.
+
+4. **Logical Error in Negative Input Handling:**
+   - Negative input handling is fine, but the program doesn't terminate after printing the error message.
+
+5. **Formatting Error in Output:**
+   - The output message doesn't explicitly describe what the factorial is.
+
+---
+
+### **Corrected Code**
+
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+try:
+    num = int(input("Enter a number: "))
+    if num < 0:
+        print("Error: Factorial is not defined for negative numbers.")
+    else:
+        print(f"The factorial of {num} is: {factorial(num)}")
+except ValueError:
+    print("Invalid input! Please enter an integer.")
+```
+
+---
+
+### **Fixes Applied**
+
+1. **Added Closing Parenthesis:**
+   - Added the missing parenthesis in the function definition: `def factorial(n):`.
+
+2. **Added Missing Colons:**
+   - Added colons after `if num < 0`, `else` in the factorial function, and `else` in the main code.
+
+3. **Handled Negative Inputs Gracefully:**
+   - Printed an error message and exited the program when negative input is entered.
+
+4. **Formatted Output Message:**
+   - Improved the output message for better readability.
+
+---
+
+### **Example Outputs**
+
+#### **Input 1**
+```
+Enter a number: 5
+The factorial of 5 is: 120
+```
+
+#### **Input 2**
+```
+Enter a number: -3
+Error: Factorial is not defined for negative numbers.
+```
+
+#### **Input 3**
+```
+Enter a number: abc
+Invalid input! Please enter an integer.
+```
+
+This corrected version ensures proper syntax, handles edge cases, and provides a clear and formatted output.

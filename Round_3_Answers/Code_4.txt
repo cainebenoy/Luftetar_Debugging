@@ -1,0 +1,56 @@
+### **Errors in the Code**
+
+1. **AttributeError - Missing Parentheses in `string.lower`:**
+   - `string.lower` is missing parentheses. It should be `string.lower()` to properly convert the string to lowercase.
+
+2. **Indentation Error - Improperly Indented `count += 1`:**
+   - The `count += 1` line is not properly indented inside the `if` block.
+
+3. **NameError - Incorrect Variable Name (`counts`):**
+   - The return statement refers to `counts`, which is undefined. It should be `count` instead.
+
+---
+
+### **Corrected Code**
+
+```python
+def count_vowels(string):
+    vowels = "aeiou"
+    count = 0
+    for char in string.lower():  # Fixed missing parentheses
+        if char in vowels:
+            count += 1  # Fixed indentation
+    return count  # Corrected variable name
+
+text = input("Enter a string: ")
+print("Number of vowels:", count_vowels(text))
+```
+
+---
+
+### **Fixes Applied**
+
+1. **Added Missing Parentheses:**
+   - Changed `string.lower` to `string.lower()` to correctly call the method and convert the string to lowercase.
+
+2. **Fixed Indentation:**
+   - Properly indented the `count += 1` line inside the `if` block.
+
+3. **Corrected Variable Name:**
+   - Replaced `counts` with `count` in the `return` statement.
+
+---
+
+### **Example Output**
+
+#### **Input**
+```
+Enter a string: Hello World
+```
+
+#### **Output**
+```
+Number of vowels: 3
+```
+
+This corrected version resolves all errors and works as intended.
