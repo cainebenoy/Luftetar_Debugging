@@ -1,8 +1,9 @@
-def calculate_average(numbers):
-    sum = 0
-    for num in numbers:
-    sum += num
-    return sum / len(numbers)
+def sum_of_evens(lst):
+    total = 0
+    for num in lst
+        if num % 2 == 0
+            total += num
+        return total
 
-nums = [10, 20, 30, 40, 50]
-print(f"The average is {calculate_average(nums)}")
+numbers = [1, 2, 3, 4, 5]
+print("The sum of even numbers is: ", sum_of_even(numbers))
